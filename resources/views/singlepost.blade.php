@@ -4,9 +4,13 @@
 <div class="row">
     <div class="col-md-8">
                 <div class="card" style="margin:30px;">
+                    <div class="card-header" style="font-weight:bold;font-size:19px;">
+                            <span class="float-right">Total Views : {{$data['views']}}</span>
+                    </div>
                     <img class="card-img-top"  src="{{"/storage/images/post/fullimg/".$data['full_image']}}" alt="{{$data['title']}}">
                     <div class="card-body">
                         <h1>{{$data['title']}}</h1>
+                        <h3>In <a href={{url('/categoryposts',$data->category->id)}}>{{$data->category->title}}</a></h3>
                         <p>{{$data['detail']}}</p>
 
                     </div>

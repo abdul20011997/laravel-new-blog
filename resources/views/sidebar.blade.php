@@ -29,9 +29,11 @@
                     Popular Posts
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" style="color:blue;font-size:16px;">Cras justo odio</li>
-                    <li class="list-group-item" style="color:blue;font-size:16px;">Dapibus ac facilisis in</li>
-                    <li class="list-group-item" style="color:blue;font-size:16px;">Vestibulum at eros</li>
+                @if($popular_posts)
+                    @for($i=0;$i<count($popular_posts);$i++)
+                    <a class="list-group-item" style="color:blue;font-size:16px;">{{$popular_posts[$i]['title']}}<span class="badge badge-secondary ml-2">{{$popular_posts[$i]['views']}}</span></a>
+                    @endfor
+                    @endif
                 </ul>
                 
             </div>

@@ -48,6 +48,10 @@ Route::post('admin/settings',[SettingController::class,'addsettings']);
 Route::get('blog',[BlogController::class,'index']);
 Route::get('singlepost/{id}',[BlogController::class,'getsinglepost']);
 Route::post('addcomment',[CommentController::class,'addcomment']);
+Route::get('allcategory',[BlogController::class,'getcategory']);
+Route::get('categoryposts/{id}',[BlogController::class,'getcategoryposts']);
+
+
 
 
 
