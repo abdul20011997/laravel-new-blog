@@ -77,6 +77,7 @@ data.append('category',category);
                 contentType: false,
                 type: 'POST',
                 success: function ( data ) {
+                    console.log(data.message)
                     var message=data.message;
                     if(message['title']){
                     messages=errors(message['title'],'alert-danger');

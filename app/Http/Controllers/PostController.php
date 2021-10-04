@@ -41,6 +41,7 @@ class PostController extends Controller
             $data->category_id=$request->category;
             $data->tags=$request->tags;
             $data->user_id=0;
+            $data->views=0;
 
 
             if($request->hasFile('thumb')){
@@ -59,7 +60,7 @@ class PostController extends Controller
                 );
                 $data->full_image=$name;
             }
-            $save=$data->save();
+$save=$data->save();
             if($save){
                 return response()->json([
                     'message'=>'success'
