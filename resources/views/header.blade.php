@@ -8,7 +8,11 @@
       <li class="nav-item">
         <a class="nav-link" href="/allcategory">Categories</a>
       </li>
+      
       @if(Session::has('user'))
+      <li class="nav-item">
+        <a class="nav-link" href="/addpost">Add Post</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/logout">Logout</a>
       </li>

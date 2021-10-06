@@ -18,7 +18,7 @@
                 <ul class="list-group list-group-flush">
                     @if($recent_posts)
                     @for($i=0;$i<count($recent_posts);$i++)
-                    <a class="list-group-item" style="color:blue;font-size:16px;">{{$recent_posts[$i]['title']}}</a>
+                    <a href="{{url('singlepost',$recent_posts[$i]['id'])}}" class="list-group-item" style="color:blue;font-size:16px;cursor:pointer;">{{$recent_posts[$i]['title']}}</a>
                     @endfor
                     @endif
                 </ul>
@@ -31,7 +31,7 @@
                 <ul class="list-group list-group-flush">
                 @if($popular_posts)
                     @for($i=0;$i<count($popular_posts);$i++)
-                    <a class="list-group-item" style="color:blue;font-size:16px;">{{$popular_posts[$i]['title']}}<span class="badge badge-secondary ml-2">{{$popular_posts[$i]['views']}}</span></a>
+                    <a href="{{url('singlepost',$popular_posts[$i]['id'])}}" class="list-group-item" style="color:blue;font-size:16px;cursor:pointer;">{{$popular_posts[$i]['title']}}<span class="badge badge-secondary ml-2">{{$popular_posts[$i]['views']}}</span></a>
                     @endfor
                     @endif
                 </ul>

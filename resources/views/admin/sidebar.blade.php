@@ -41,7 +41,7 @@
 </li>
 
 <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="/admin/comments">
         <i class="fas fa-fw fa-comments"></i>
         <span>Comments</span></a>
 </li>
@@ -51,8 +51,7 @@
         <span>Settings</span></a>
 </li>
 <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages3"
-        aria-expanded="true" aria-controls="collapsePages3">
+    <a class="nav-link collapsed" href="/admin/users" >
         <i class="fas fa-fw fa-users"></i>
         <span>Users</span>
     </a>

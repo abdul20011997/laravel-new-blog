@@ -22,7 +22,7 @@ use App\Http\Controllers\CommentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/','admin.index');
+Route::get('/',[AdminController::class,'index']);
 Route::get('/login', function () {
     return view('admin.login');
 });
@@ -45,11 +45,19 @@ Route::get('admin/post/{id}',[PostController::class,'editpost']);
 Route::post('admin/post/editpost',[PostController::class,'updatepost']);
 Route::get('admin/settings',[SettingController::class,'index']);
 Route::post('admin/settings',[SettingController::class,'addsettings']);
+Route::get('admin/users',[AdminController::class,'getusers']);
+Route::get('admin/comments',[AdminController::class,'getcomments']);
+
+
 Route::get('blog',[BlogController::class,'index']);
 Route::get('singlepost/{id}',[BlogController::class,'getsinglepost']);
 Route::post('addcomment',[CommentController::class,'addcomment']);
 Route::get('allcategory',[BlogController::class,'getcategory']);
 Route::get('categoryposts/{id}',[BlogController::class,'getcategoryposts']);
+Route::get('addpost',[BlogController::class,'addpost']);
+Route::post('addpost',[BlogController::class,'createpost']);
+
+
 
 
 
