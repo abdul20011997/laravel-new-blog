@@ -26,6 +26,7 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Created At</th>
+                                            <th>Action</th>
 
                                         </tr>
                                     </thead>
@@ -36,6 +37,7 @@
                                             <td>{{$data[$i]['name']}}</td>
                                             <td>{{$data[$i]['email']}}</td>
                                             <td>{{$data[$i]['created_at']}}</td>
+                                            <td><button class="btn btn-danger" onclick="deleteuser(this.id)" id="{{$data[$i]['id']}}">Delete</button></td>
                                         </tr>
                                         @endfor
                                     </tbody>
@@ -52,23 +54,28 @@
         function errors(err,type){
              return '<div class="alert '+type+'" role="alert">'+err+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
         }
-        function deletecategory(id){
+        function deleteuser(id){
             var messages='';
+            var data;
+            data = new FormData();
+            data.append('id',id);
             $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
             });
             $.ajax({
-            type: 'DELETE',
-            url: '/admin/category/'+id,
-            dataType:"json",
+            url: '/admin/deleteuser',
+            data: data,
+            processData: false,
+            contentType: false,
+            type: 'POST',
             success: function(response){
                 console.log(response);
                 var message=response.message;
                 if(message=="success"){
-                    messages=errors('Category Deleted Successfully','alert-success');
-                    window.location.href='/admin/category';
+                    messages=errors('User Deleted Successfully','alert-success');
+                    window.location.href='/admin/users';
                 }
                 else{
                     messages=errors(message,'alert-danger');
@@ -77,6 +84,8 @@
             }
             });
         }
+
+        
         function editcategory(id){
             window.location.href="/admin/category/"+id;
         }

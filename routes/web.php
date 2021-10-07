@@ -47,6 +47,10 @@ Route::get('admin/settings',[SettingController::class,'index']);
 Route::post('admin/settings',[SettingController::class,'addsettings']);
 Route::get('admin/users',[AdminController::class,'getusers']);
 Route::get('admin/comments',[AdminController::class,'getcomments']);
+Route::post('admin/deletecomment',[AdminController::class,'deletecomment']);
+Route::post('admin/deleteuser',[AdminController::class,'deleteuser']);
+
+
 
 
 Route::get('blog',[BlogController::class,'index']);

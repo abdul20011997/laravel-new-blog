@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 use App\Models\Post;
+use App\Models\Setting;
+
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
@@ -25,8 +27,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-        $data=Post::orderBy('id','DESC')->limit(5)->get();
-        $popularpost_data=Post::orderBy('views','DESC')->limit(5)->get();
+        $newdata=Setting::first();
+        $data=Post::orderBy('id','DESC')->limit($newdata->recent_limit)->get();
+        $popularpost_data=Post::orderBy('views','DESC')->limit($newdata->popular_limit)->get();
 
         View::share('recent_posts',$data);
         View::share('popular_posts',$popularpost_data);

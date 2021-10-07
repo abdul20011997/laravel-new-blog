@@ -30,6 +30,36 @@ class AdminController extends Controller
         $data=Comment::all();
         return view('admin.allcomments',['data'=>$data]);
     }
+    public function deletecomment(Request $request){
+        $data=Comment::find($request->id);
+        $deletedata=$data->delete();
+        if($deletedata){
+            return response()->json([
+                'message'=>'success'
+            ]);
+        }
+        else{
+            return response()->json([
+                'message'=>'failure'
+            ]);
+        }
+
+    }
+    public function deleteuser(Request $request){
+        $data=User::find($request->id);
+        $deletedata=$data->delete();
+        if($deletedata){
+            return response()->json([
+                'message'=>'success'
+            ]);
+        }
+        else{
+            return response()->json([
+                'message'=>'failure'
+            ]);
+        }
+
+    }
     public function register(Request $req){
   
         $validator=Validator::make($req->all(),[
